@@ -1,10 +1,12 @@
-## Put comments here that give an overall description of what your
-## functions do
+## These two functions create a "special" matrix which 
+## is actually a list and then use that list to calculate
+## the inverse of the matrix
 
 ## Create a "special" matrix which is 
 ## really a list containing 4 functions
 
 makeCacheMatrix <- function(x = matrix()) {
+## set inv to NULL to begin process
   inv <- NULL
   set <- function(y){
     x <<-y
@@ -18,11 +20,13 @@ makeCacheMatrix <- function(x = matrix()) {
        getInv = getInv)
   }
 
+
  ## Function to calculate the inverse of the "special" 
  ##  matrix created above
 
 cacheSolve <- function(x, ...) {
-        ## Return a matrix that is the inverse of 'x'
+## assign inv if not already assigned, otherwise return
+## original and let user know they already did this once
   inv <-x$getInv()
   if(!is.null(inv)){
     message("getting cached data, no need to recompute")
